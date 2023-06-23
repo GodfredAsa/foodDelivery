@@ -10,6 +10,9 @@ _item_parser.add_argument("imageUrl", type=str, help=BLANK_ERROR.format("imageUr
 _item_parser.add_argument("qty", type=int, help=BLANK_ERROR.format("qty"))
 
 
+def create_item_request_data(data) -> ItemModel:
+    return ItemModel(data['name'], data['description'], data['price'], data['imageUrl'], data['qty'])
+
 
 def item_data():
     return _item_parser.parse_args()
@@ -20,3 +23,4 @@ def item_exist(name):
         return False
     else:
         return True
+

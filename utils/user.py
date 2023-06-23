@@ -1,9 +1,12 @@
-
+import re
 import bcrypt
 from flask_restful import reqparse
 from constants.user_constants import BLANK_ERROR
 from model.user import UserModel
-
+from flask_jwt_extended import (
+    create_access_token,
+    create_refresh_token
+   )
 
 _user_parser = reqparse.RequestParser()
 _user_parser.add_argument("firstName", type=str, required=True, help=BLANK_ERROR.format("firstName"))
@@ -33,6 +36,18 @@ def verify_credentials(email, password):
     else:
         return False
 
+
+def validate_email(email):
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return re.match(pattern, email) is not None
+
+
+def get_users(adminEmail, userEmail):
+    return UserModel.find_by_email(adminEmail), UserModel.find_by_email(userEmail)
+
+
+def generate_token(user: 'UserModel') -> str:
+    return create_refresh_token(user.user_id) if user.is_admin else create_access_token(identity=user.user_id)
 
 
 

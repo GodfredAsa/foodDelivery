@@ -1,3 +1,6 @@
-RESTAURANT_ALREADY_EXISTS = "Restaurant with {} already exist"
-REQUEST_UNSUCCESSFUL = "Request Not Successful"
-RESTAURANT_NOT_OPENED = 'No restaurant available'
+RESTAURANT_ALREADY_EXISTS = "Restaurant with {} already exist".title()
+REQUEST_UNSUCCESSFUL = "Request Not Successful".title()
+RESTAURANT_NOT_OPENED = 'No restaurant available'.title()
+RESTAURANT_NOT_FOUND = "Restaurant Not Found".title()
+RESTAURANT_DELETED = "Restaurant Successfully Deleted".title()
+RESTAURANT_EXISTS = "Restaurant Already Exists".title()

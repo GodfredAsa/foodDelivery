@@ -16,11 +16,11 @@ class OrderTest(IntegrationBaseTest):
             item.save_item_db()
 
             order = OrderModel(5, user.id, user.id)
-            self.assertIsNone(OrderModel.find_order_by_id(order.id), "Verify Order Not Created")
+            self.assertIsNone(OrderModel.find_by_id(order.id), "Verify Order Not Created")
 
             order.save_order_db()
 
-            self.assertIsNotNone(OrderModel.find_order_by_id(order.id), "Verify Order Created")
+            self.assertIsNotNone(OrderModel.find_by_id(order.id), "Verify Order Created")
             self.assertIsNone(order.unit_cost)
             self.assertIsNone(order.total_cost)
 

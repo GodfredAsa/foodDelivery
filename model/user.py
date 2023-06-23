@@ -25,7 +25,7 @@ class UserModel(db.Model):
         self.wallet = 50.0
 
     def __str__(self):
-        return f"<User: ID:{self.id}, Email:{self.email}, Username:{self.username} wallet:{self.wallet}>"
+        return f"<User: ID:{self.id}, Email:{self.email}, wallet:{self.wallet}>"
 
     def json(self):
         return {

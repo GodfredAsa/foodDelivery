@@ -53,11 +53,11 @@ class OrderModel(db.Model):
         return cls.query.all()
 
     @classmethod
-    def find_order_by_order_id(cls, order_id: str) -> 'OrderModel':
+    def find_by_order_id(cls, order_id: str) -> 'OrderModel':
         return cls.query.filter_by(order_id=order_id).first()
 
     @classmethod
-    def find_order_by_id(cls, _id) -> 'OrderModel':
+    def find_by_id(cls, _id) -> 'OrderModel':
         return cls.query.filter_by(id=_id).first()
 
     def save_order_db(self) -> None:

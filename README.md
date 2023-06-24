@@ -31,76 +31,76 @@ There are 2 types of users in the system. it create an admin or superuser the em
 
 ##### REGISTRATION =>  POST: ```{{BASE_URL}}/api/register```
  
- ```{
+{
     "email": "vida@turntabl.io",
     "firstName": "Angelina",
     "lastName": "Kyeah",
     "password": "thanks",
     "imageUrl": "image"
-}```
+}
 
 ##### LOGIN => POST: ```{{BASE_URL}}/api/login```
 NB: If admin you are provided with refresh token while a user is access token
 
    **sample request details**
    
-```{
+{
     "email": "vida@turntabl.io",
     "password": "thanks"
-}```
+}
 
 ##### ALL USERS GET: ```{{BASE_URL}}/api/users/admin```
 
 ##### GET USER BY EMAIL ADMIN RESOURCE  DELETE: ```/api/users/admin/<email>```
-##### GET: ```api/items```
-##### POST: ```/api/admin/items```
+##### GET: api/items
+##### POST: /api/admin/items
 
 **Sample Requests Details **
 
 NB: ImageUrl is Optional 
 
-```{
+{
     "name": "leaf",
     "description": "organic",
     "price": 30.5,
     "imageUrl": "image",
     "qty": 10
-}```
+}
 
-##### POST: ```api/admin/restaurants```
+##### POST: _api/admin/restaurants_
 
 **Sample Request Details**
 NB: itemId must exists before reference, worry not the response will guide you if you forget.
 
-```{
+{
     "name": "Papaye",
     "city": "Accra",
     "itemId": 2
-}```
+}
 
-##### GET: ```/api/restaurants```
-##### GET: ```/api/restaurants/<name>```
-##### PUT: ```api/admin/restaurants/<name>```
+##### GET: _/api/restaurants_
+##### GET: _/api/restaurants/<name>_
+##### PUT: _api/admin/restaurants/<name>_
 
 **Sample Request**
 NB: itemId must exists before reference, worry not the response will guide you if you forget.
 
- ```{
+{
     "name": "bread",
     "city": "Accra",
     "itemId": 3
-}```
+}
 
-##### DELETE: ```api/admin/restaurants/<name>```
-##### POST: ```api/orders/place/users```
+##### DELETE: _api/admin/restaurants/<name>_
+##### POST: _api/orders/place/users_
 
 **Sample Request**
 
-```{
-    "qty": 1,
-    "userId": 16,
-    "itemId": 5
-}```
+{
+ "qty": 1,
+ "userId": 16,
+ "itemId": 5
+}
 
 ##### GET: ```api/orders/<email>/<orderId>```
 ##### PUT: ```api/orders/<email>/<orderId>```

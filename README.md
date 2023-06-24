@@ -11,7 +11,7 @@ It's a RESTful API for a food delivery service. Users can use the API to browse 
 ### INSTALLATION GUIDE 
 * Clone the project git clone _project url_
 * cd into the project root directory
-* create a virtual environment using ```python -m venv <virtual_name>``` where <virtual_name> is your env name eg. If ```food-delivery-env``` is your venv name. If not clear copy, paste and run ```python3 -m venv food-delivery-env```
+* create a virtual environment using ```python -m venv <virtual_name>``` where <virtual_name> is your env name eg. If ```food-delivery-env``` is your venv name, then copy, paste and run ```python3 -m venv food-delivery-env```
 * Activate virtual environment ```source <virtual_name>/bin/activate```. But you used ```food-delivery-env``` as your env then use this ```source food-delivery-env/bin/activate``` in your terminal far left of the console will appear as ```(food-delivery-env)``` which means env is activated where the word in the parenthesis is your environment name
 * Installing dependencies from the ```requirements.txt```. Copy, paste and run this ```pip install -r requirements.txt```
 * Runnig the server ```python app.py``` you should see ``` Running on http://127.0.0.1:5001/ (Press CTRL+C to quit) ```

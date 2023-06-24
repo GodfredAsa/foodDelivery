@@ -111,7 +111,7 @@ NB: itemId must exists before reference, worry not the response will guide you i
     "qty": 1
 }
 
-##### DELETE: _api/orders/<email>/<orderId>_
+##### DELETE: ```api/orders/<email>/<orderId>```
 ##### GET: _api/orders/admin_
 ##### PUT: _api/admin/orders/fulfilment_
 

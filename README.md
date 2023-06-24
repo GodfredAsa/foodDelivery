@@ -107,17 +107,17 @@ NB: itemId must exists before reference, worry not the response will guide you i
 
 **Sample Request**
 
-```{
+{
     "qty": 1
-}```
+}
 
-##### DELETE: ```api/orders/<email>/<orderId>```
-##### GET: ```api/orders/admin```
-##### PUT: ```api/admin/orders/fulfilment```
+##### DELETE: _api/orders/<email>/<orderId>_
+##### GET: _api/orders/admin_
+##### PUT: _api/admin/orders/fulfilment_
 
 **Sample Requests Details**
 
-```{
+{
     "email": "vida@turntabl.io",
     "orderId": 2
-}```
+}

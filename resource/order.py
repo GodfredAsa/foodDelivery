@@ -4,12 +4,11 @@ from flask import request
 from constants.item_constants import ITEM_NOT_FOUND, ITEM_OUT_OF_STOCK, INVALID_ITEM_PURCHASE_QTY
 from constants.order import ORDER_QTY_INVALID, ORDER_REQUEST_ERROR, ORDER_CANCELLED, ORDER_DELETED_SUCCESS, \
     ORDER_DELETE_UNSUCCESSFUL, ORDER_UPDATE_UNSUCCESSFUL
-from constants.user_constants import USER_NOT_FOUND, INADEQUATE_BALANCE, USER_NOT_AUTHORIZE
+from constants.user_constants import USER_NOT_FOUND, INADEQUATE_BALANCE
 from model.item import ItemModel
 from model.order import OrderModel
 from model.user import UserModel
 from utils.order import get_order_data
-from utils.user import get_users
 from utils.utils import return_message
 import http.client as status
 from constants.order import ORDER_FULFILLED, ORDER_ALREADY_FULFILLED, ORDER_SUCCESSFULLY_FULFILLED, \
@@ -165,14 +164,9 @@ class FulfilOrderResource(Resource):
 
 class PlacedOrders(Resource):
     @jwt_refresh_token_required
-    def get(self, email):
+    def get(self):
         try:
-            user, _ = get_users(email, "")
-            if not user:
-                return return_message(status.BAD_REQUEST, USER_NOT_FOUND), status.BAD_REQUEST
-            if user.is_admin:
-                return [order.json() for order in OrderModel.find_all_orders()]
-            return return_message(status.UNAUTHORIZED, USER_NOT_AUTHORIZE), status.UNAUTHORIZED
+            return [order.json() for order in OrderModel.find_all_orders()], status.OK
         except Exception as e:
             print(ORDER_REQUEST_ERROR, str(e))
             return return_message(status.BAD_REQUEST, ORDER_REQUEST_ERROR), status.BAD_REQUEST

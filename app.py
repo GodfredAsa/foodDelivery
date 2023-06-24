@@ -8,7 +8,7 @@ from constants.uri import REGISTRATION_URI, LOGIN_URI, ITEM_URI, CREATE_RESTAURA
 from constants.app_constants import DB_URI, DB_CONNECTION_STRING, SQL_MODIFICATION_STRING, PROPAGATE_EXCEPTIONS, \
     JWT_KEY, JWT_SECRET
 from db import db
-from resource.item import ItemsResource, CreateItemResource
+from resource.item import ListOfItemsResource, CreateItemResource, ItemResource
 from resource.order import PlaceOrderResource, FulfilOrderResource, OrderResource, PlacedOrders
 from resource.restaurant import CreateRestaurantResource, RestaurantResource
 from resource.user import RegisterUser, UserLogin, UserResource, UsersResource
@@ -34,7 +34,8 @@ api.add_resource(UserResource, USER_URI)
 api.add_resource(UsersResource, USERS_URI)
 
 api.add_resource(CreateItemResource, CREATE_ITEM_URI)
-api.add_resource(ItemsResource, ITEM_URI)
+api.add_resource(ListOfItemsResource, ITEM_URI)
+api.add_resource(ItemResource, "/api/admin/items/<string:name>")
 
 api.add_resource(CreateRestaurantResource, CREATE_RESTAURANT_URI)
 api.add_resource(RestaurantResource, RESTAURANT_URI)
@@ -43,6 +44,9 @@ api.add_resource(PlaceOrderResource, PLACE_ORDER_URI)
 api.add_resource(FulfilOrderResource, ORDER_FULFILMENT_URI)
 api.add_resource(OrderResource, ORDER_URI)
 api.add_resource(PlacedOrders, PLACED_ORDERS_URI)
+
+
+
 
 
 if __name__ == "__main__":

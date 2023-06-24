@@ -13,7 +13,7 @@ from constants.user_constants import (
     USER_DELETED
 )
 from utils.utils import return_message
-from flask_jwt_extended import jwt_refresh_token_required, jwt_required
+from flask_jwt_extended import jwt_refresh_token_required
 
 
 class RegisterUser(Resource):
@@ -31,6 +31,7 @@ class RegisterUser(Resource):
 
             if "admin" in user.email.split('@')[0]:
                 user.is_admin = True
+                user.wallet = 0.0
 
             user.save_to_db()
             return user.json(), status.CREATED

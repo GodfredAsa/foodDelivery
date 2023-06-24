@@ -17,11 +17,11 @@ It's a RESTful API for a food delivery service. Users can use the API to browse 
 * Congratulations you have started server. If you have issues and need assistance contact me asap on Linkedin
 
 ### HOW TO USE THE PROJECT 
-There are 2 types of users in the system. it create an admin or superuser the email should start with <admin> example ```admin@filler.io```, for a normal user any email we be ok eg. kofi@epals.com. Also, when a user is created, the user as a wallet balance worth of 50.0 at the the time of this documentation.
+There are 2 types of users in the system. it create an admin or superuser the email should start with <admin> example ```admin@filler.io```, for a normal user any email we be ok eg. ```kofi@epals.com```. Also, when a user is created, the user as a wallet worth of 50.0 at the the time of this documentation whilst admins have 0.0 of wallet worth.
 
 #### HOW TO USE THE RESOURCES 
 
-#####NOTE THE FOLLOWING 
+##### NOTE THE FOLLOWING 
 
 1. ALL APIs MUST START WITH THE BASE_URL = ```http://127.0.0.1:5001```
 2. EXAMPLE SHOWN IN THE FIRST 2 RESOURCES, REGISTRATION AND LOGIN
@@ -29,85 +29,95 @@ There are 2 types of users in the system. it create an admin or superuser the em
 4. ALL APIs WITH OR CONTAIN ```admin``` ARE ADMIN RESOURCES OR APIs
 5. ALL APIs REQUIRE AUTHENTICATION AND OR AUTHORIZATION EXCEPT GET ITEM(S) AND RESTAURANT(S) APIs
 
-##### REGISTRATION =>  POST : {{BASE_URL}}/api/register
+##### REGISTRATION =>  POST: ```{{BASE_URL}}/api/register```
  
- {
+ ```{
     "email": "vida@turntabl.io",
     "firstName": "Angelina",
     "lastName": "Kyeah",
     "password": "thanks",
     "imageUrl": "image"
-}
-##### LOGIN => POST: {{BASE_URL}}/api/login
-NB: If admin you are provided with refresh token and user asscess token
+}```
+
+##### LOGIN => POST: ```{{BASE_URL}}/api/login```
+NB: If admin you are provided with refresh token while a user is access token
+
    **sample request details**
    
-{
+```{
     "email": "vida@turntabl.io",
     "password": "thanks"
-}
-##### ALL USERS GET: {{BASE_URL}}/api/users/admin
+}```
 
-##### GET USER BY EMAIL ADMIN RESOURCE  DELETE: /api/users/admin/<email>
-##### GET: api/items
-##### POST: /api/admin/items
+##### ALL USERS GET: ```{{BASE_URL}}/api/users/admin```
+
+##### GET USER BY EMAIL ADMIN RESOURCE  DELETE: ```/api/users/admin/<email>```
+##### GET: ```api/items```
+##### POST: ```/api/admin/items```
+
 **Sample Requests Details **
+
 NB: ImageUrl is Optional 
 
-{
+```{
     "name": "leaf",
     "description": "organic",
     "price": 30.5,
     "imageUrl": "image",
     "qty": 10
-}
+}```
 
-##### POST: api/admin/restaurants
+##### POST: ```api/admin/restaurants```
+
 **Sample Request Details**
 NB: itemId must exists before reference, worry not the response will guide you if you forget.
 
-{
+```{
     "name": "Papaye",
     "city": "Accra",
     "itemId": 2
-}
+}```
 
-##### GET: /api/restaurants
-##### GET: /api/restaurants/<name>
-##### PUT: api/admin/restaurants/<name>
+##### GET: ```/api/restaurants```
+##### GET: ```/api/restaurants/<name>```
+##### PUT: ```api/admin/restaurants/<name>```
+
 **Sample Request**
 NB: itemId must exists before reference, worry not the response will guide you if you forget.
 
- {
+ ```{
     "name": "bread",
     "city": "Accra",
     "itemId": 3
-}
+}```
 
-##### DELETE: api/admin/restaurants/<name>
-##### POST: api/orders/place/users
+##### DELETE: ```api/admin/restaurants/<name>```
+##### POST: ```api/orders/place/users```
+
 **Sample Request**
 
-{
+```{
     "qty": 1,
     "userId": 16,
     "itemId": 5
-}
+}```
 
-##### GET: api/orders/<email>/<orderId>
-##### PUT: api/orders/<email>/<orderId>
+##### GET: ```api/orders/<email>/<orderId>```
+##### PUT: ```api/orders/<email>/<orderId>```
+
 **Sample Request**
 
-{
+```{
     "qty": 1
-}
+}```
 
-##### DELETE: api/orders/<email>/<orderId>
-##### GET: api/orders/admin
-##### PUT: api/admin/orders/fulfilment
+##### DELETE: ```api/orders/<email>/<orderId>```
+##### GET: ```api/orders/admin```
+##### PUT: ```api/admin/orders/fulfilment```
+
 **Sample Requests Details**
 
-{
+```{
     "email": "vida@turntabl.io",
     "orderId": 2
-}
+}```

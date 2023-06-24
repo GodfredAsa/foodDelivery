@@ -4,20 +4,20 @@ from flask_jwt_extended import JWTManager
 
 from constants.uri import REGISTRATION_URI, LOGIN_URI, ITEM_URI, CREATE_RESTAURANT_URI, ORDER_FULFILMENT_URI, \
     PLACE_ORDER_URI, \
-    USER_URI, ORDER_URI, PLACED_ORDERS_URI, USERS_URI, CREATE_ITEM_URI, RESTAURANT_URI
-from constants.app_constants import DB_URI, DB_CONNECTION_STRING, SQL_MODIFICATION_STRING, PROPAGATE_EXCEPTIONS, \
+    USER_URI, ORDER_URI, PLACED_ORDERS_URI, USERS_URI, CREATE_ITEM_URI, RESTAURANT_URI, ITEM_NAME_URI
+from constants.app_constants import SQLALCHEMY_DATABASE_URI, DB_CONNECTION_STRING, SQL_MODIFICATION_STRING, PROPAGATE_EXCEPTIONS, \
     JWT_KEY, JWT_SECRET
 from db import db
 from resource.item import ListOfItemsResource, CreateItemResource, ItemResource
 from resource.order import PlaceOrderResource, FulfilOrderResource, OrderResource, PlacedOrders
 from resource.restaurant import CreateRestaurantResource, RestaurantResource
-from resource.user import RegisterUser, UserLogin, UserResource, UsersResource
+from resource.user import RegisterUser, UserLogin, UsersResource, UserResource
 
 app = Flask(__name__)
 jwt = JWTManager(app)
 api = Api(app)
 
-app.config[DB_URI] = DB_CONNECTION_STRING
+app.config[SQLALCHEMY_DATABASE_URI] = DB_CONNECTION_STRING
 app.config[SQL_MODIFICATION_STRING] = False
 app.config[PROPAGATE_EXCEPTIONS] = True
 app.config[JWT_SECRET] = 'joe'
@@ -35,7 +35,7 @@ api.add_resource(UsersResource, USERS_URI)
 
 api.add_resource(CreateItemResource, CREATE_ITEM_URI)
 api.add_resource(ListOfItemsResource, ITEM_URI)
-api.add_resource(ItemResource, "/api/admin/items/<string:name>")
+api.add_resource(ItemResource, ITEM_NAME_URI)
 
 api.add_resource(CreateRestaurantResource, CREATE_RESTAURANT_URI)
 api.add_resource(RestaurantResource, RESTAURANT_URI)

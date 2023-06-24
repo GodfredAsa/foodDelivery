@@ -56,13 +56,11 @@ class UserLogin(Resource):
 
 class UserResource(Resource):
     @jwt_refresh_token_required
-    def get(self, adminEmail, userEmail):
+    def get(self, userEmail):
         try:
-            admin, user = get_users(adminEmail, userEmail)
+            _, user = get_users("", userEmail)
             if not user:
                 return return_message(status.NOT_FOUND, USER_NOT_FOUND), status.NOT_FOUND
-            if not admin.is_admin:
-                return return_message(status.UNAUTHORIZED, USER_NOT_AUTHORIZE), status.UNAUTHORIZED
             return user.json(), status.OK
         except Exception as e:
             print(ERROR_PROCESSING_REQUEST, str(e))
@@ -74,6 +72,8 @@ class UserResource(Resource):
             _, user = get_users("", userEmail)
             if not user:
                 return return_message(status.NOT_FOUND, USER_NOT_FOUND), status.NOT_FOUND
+            if user.is_admin:
+                return return_message(status.UNAUTHORIZED, USER_NOT_AUTHORIZE), status.UNAUTHORIZED
             user.delete_from_db()
             return return_message(status.OK, USER_DELETED), status.OK
         except Exception as e:
@@ -84,4 +84,4 @@ class UserResource(Resource):
 class UsersResource(Resource):
     @jwt_refresh_token_required
     def get(self):
-        return [user.json() for user in UserModel.find_all_users()], status.OK
+        return [user.json() for user in UserModel.find_all_users() if not user.is_admin], status.OK

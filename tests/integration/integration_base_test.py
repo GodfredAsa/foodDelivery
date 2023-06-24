@@ -1,13 +1,13 @@
 import os
 from unittest import TestCase
 from app import app
-from constants.app_constants import DB_URI, DB_CONNECTION_STRING
+from constants.app_constants import SQLALCHEMY_DATABASE_URI, DB_CONNECTION_STRING
 from db import db
 
 
 class IntegrationBaseTest(TestCase):
     def setUp(self) -> None:
-        app.config[DB_URI] = os.environ.get(DB_URI[11:], DB_CONNECTION_STRING[:-7])
+        app.config[SQLALCHEMY_DATABASE_URI] = os.environ.get(SQLALCHEMY_DATABASE_URI[11:], DB_CONNECTION_STRING[:-7])
 
         with app.app_context():
             db.init_app(app)

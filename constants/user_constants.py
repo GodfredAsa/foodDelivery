@@ -8,11 +8,10 @@ USER_DELETED = "User deleted Successfully.".title()
 INADEQUATE_BALANCE = "User Balance is Insufficient".title()
 USER_NOT_AUTHORIZE = 'You are not Authorized to perform this request'.title()
 
-USER_LOGGED_OUT = "User <id={}> successfully logged out.".title()
 USER_NOT_REGISTERED = "User Registration unsuccessful".title()
 INVALID_CREDENTIALS = "Invalid User Credentials".title()
 
 LOGIN_SUCCESSFUL = "User Successfully Login".title()
 ATTRIBUTE_ERROR = "An Attribute Error Occurred {}".title()
-INVALID_EMAIL = "Provided Email Not Valid ".title()
+INVALID_EMAIL = "Provided Email Not Valid".title()
 ERROR_PROCESSING_REQUEST = "Error processing request".title()

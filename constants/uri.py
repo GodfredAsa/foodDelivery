@@ -5,7 +5,7 @@ USERS_URI = "/api/users/admin"
 
 ITEM_URI = "/api/items"
 CREATE_ITEM_URI = "/api/admin/items"
-
+ITEM_NAME_URI = "/api/admin/items/<string:name>"
 CREATE_RESTAURANT_URI = "/api/restaurants"
 RESTAURANT_URI = "/api/admin/restaurants/<string:name>"
 

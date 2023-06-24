@@ -1,4 +1,4 @@
-                                                                           😉
+                                                                           
 ## FOOD DELIVERY 
 
 ### DESCRIPTION 
@@ -123,4 +123,3 @@ NB: itemId must exists before reference, worry not the response will guide you i
     "orderId": 2
 }
 
-THANKS 👨🏾‍⚖️

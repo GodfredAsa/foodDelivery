@@ -41,6 +41,7 @@ There are 2 types of users in the system. it create an admin or superuser the em
 ##### LOGIN => POST: {{BASE_URL}}/api/login
 NB: If admin you are provided with refresh token and user asscess token
    **sample request details**
+   
 {
     "email": "vida@turntabl.io",
     "password": "thanks"
@@ -52,6 +53,7 @@ NB: If admin you are provided with refresh token and user asscess token
 ##### POST: /api/admin/items
 **Sample Requests Details **
 NB: ImageUrl is Optional 
+
 {
     "name": "leaf",
     "description": "organic",
@@ -63,6 +65,7 @@ NB: ImageUrl is Optional
 ##### POST: api/admin/restaurants
 **Sample Request Details**
 NB: itemId must exists before reference, worry not the response will guide you if you forget.
+
 {
     "name": "Papaye",
     "city": "Accra",
@@ -74,6 +77,7 @@ NB: itemId must exists before reference, worry not the response will guide you i
 ##### PUT: api/admin/restaurants/<name>
 **Sample Request**
 NB: itemId must exists before reference, worry not the response will guide you if you forget.
+
  {
     "name": "bread",
     "city": "Accra",
@@ -83,6 +87,7 @@ NB: itemId must exists before reference, worry not the response will guide you i
 ##### DELETE: api/admin/restaurants/<name>
 ##### POST: api/orders/place/users
 **Sample Request**
+
 {
     "qty": 1,
     "userId": 16,
@@ -92,6 +97,7 @@ NB: itemId must exists before reference, worry not the response will guide you i
 ##### GET: api/orders/<email>/<orderId>
 ##### PUT: api/orders/<email>/<orderId>
 **Sample Request**
+
 {
     "qty": 1
 }
@@ -100,6 +106,7 @@ NB: itemId must exists before reference, worry not the response will guide you i
 ##### GET: api/orders/admin
 ##### PUT: api/admin/orders/fulfilment
 **Sample Requests Details**
+
 {
     "email": "vida@turntabl.io",
     "orderId": 2
